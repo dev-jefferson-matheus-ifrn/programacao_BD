@@ -5,7 +5,7 @@ SGBD: MySQL 8.x
 AUTORES: Jefferson Matheus Ferreira de Lima, Letícia Geovava Lopes dos Santos
 */
 
---. Liste os nomes dos candidatos cujo partido possui orientação "Centro". 1
+-- 1. Liste os nomes dos candidatos cujo partido possui orientação "Centro".
 
 -- 2. Liste os nomes dos partidos e as respectivas quantidades de candidatos associados.
 SELECT SgPartido, COUNT(NoCandidato)FROM TbPartido as p
@@ -25,6 +25,10 @@ JOIN tbcandidato as c ON v.NuCandidato = c.NuCandidato
 group by c.NoCandidato having(sum(v.QtVotos)) > (SELECT AVG(QtVotos) as votos FROM tbvotos);
 
 --5. Mostre os candidatos que não receberam votos em nenhuma zona.
+SELECT c.NoCandidato
+FROM TbCandidato c
+LEFT JOIN TbVotos v ON c.NuCandidato = v.NuCandidato
+WHERE v.NuCandidato IS NULL;
 
 --6. Liste os partidos que possuem, pelo menos, um candidato associado.
 SELECT DISTINCT p.SgPartido FROM TbPartido as p 
