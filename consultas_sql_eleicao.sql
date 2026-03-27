@@ -5,7 +5,7 @@ SGBD: MySQL 8.x
 AUTORES: Jefferson Matheus Ferreira de Lima & Letícia Geovava Lopes dos Santos
 */
 
---. Liste os nomes dos candidatos cujo partido possui orientação "Centro". 1
+-- 1. Liste os nomes dos candidatos cujo partido possui orientação "Centro". 1
 SELECT c.NoCandidato FROM TbCandidato c
 LEFT JOIN TbPartido as p ON c.CoPartido = p.CoPartido
 WHERE p.CoOrientacao = 2;
@@ -27,7 +27,7 @@ SELECT c.NoCandidato, sum(v.QtVotos) FROM tbvotos as v
 JOIN tbcandidato as c ON v.NuCandidato = c.NuCandidato 
 group by c.NoCandidato having(sum(v.QtVotos)) > (SELECT AVG(QtVotos) as votos FROM tbvotos);
 
---5. Mostre os candidatos que não receberam votos em nenhuma zona.
+-- 5. Mostre os candidatos que não receberam votos em nenhuma zona.
 SELECT c.NoCandidato
 FROM TbCandidato c
 LEFT JOIN TbVotos v ON c.NuCandidato = v.NuCandidato
