@@ -4,6 +4,10 @@
 
 Execute o script em anexo para construir (e popular) o banco de dados.
 
+**DIGRAMA ER:**
+![Diagrama ER Do Banco de dados](diagram_db_rn_eleicao.png)
+
+
 **QUESTÕES:**
 
 1. Liste os nomes dos candidatos cujo partido possui orientação "Centro".
